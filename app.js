@@ -19,13 +19,20 @@ function agregarAmigo(){
     }
     lista.push(amigo);
     limpiarCaja();
+    mostrarLista();
     console.log(lista);
 }
 
 function mostrarLista(){
-    let listaNombres = document.getElementById('amigo');
+    let ul = document.getElementById('listaAmigos');
+    ul.innerHTML = '';
 
-
+    lista.forEach(nombre=> {
+        let li = document.createElement('li');
+        li.textContent = nombre;
+        li.setAttribute('role', 'listitem');
+        ul.appendChild(li);
+    })
 }
 
 function limpiarCaja(){
